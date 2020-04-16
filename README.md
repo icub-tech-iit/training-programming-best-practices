@@ -23,9 +23,5 @@ My personal experiences and interpretation.
 - Practices by example
 
 
-### MaterialSome slides and *.h or *.cpp files will be provided
-
----
-
-@icub-tech-iit/everyone, please drop below a comment if you want to attend 👋
+### MaterialSome slides and *.h or *.cpp files will be provided in the doc folder
 
