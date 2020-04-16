@@ -23,5 +23,9 @@ My personal experiences and interpretation.
 - Practices by example
 
 
-### MaterialSome slides and *.h or *.cpp files will be provided in the doc folder
+### Material
+Some slides and *.h or *.cpp files will be provided in the doc folder
+
+### Time and place 
+To be decided
 
