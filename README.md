@@ -24,7 +24,7 @@ My personal experiences and interpretation.
 
 
 ### Material
-Some slides and *.h or *.cpp files will be provided in the doc folder
+You can find some slides and *.h or *.cpp files in the doc folder, daily update.
 
 ### Time and place 
 To be decided
