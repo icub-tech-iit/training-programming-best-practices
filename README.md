@@ -20,12 +20,12 @@ My personal experiences and interpretation.
 - Refactoring
 - Tools
 - Debugging time
-- Practices by example
+- Practices by example (gtest and gmock)
 
 
 ### Material
 You can find some slides and *.h or *.cpp files in the doc folder, daily update.
 
 ### Time and place 
-To be decided
+The 17th of November 1:30 hours for theory and the 18th of November 1:00 hours for pratics.
 
