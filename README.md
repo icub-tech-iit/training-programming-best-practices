@@ -1,5 +1,5 @@
 # Course generic part
-Refer to <a href="generic-course-part/README.md">
+Refer to [general part](generic-course-part/README.md)
 
 # Course unittest part
-Refer to <a href="unittest-course-part/README.md">
+Refer to [unittest part](unittest-course-part/README.md)
