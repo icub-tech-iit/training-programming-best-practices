@@ -1,3 +1,4 @@
+
 /******************************************************************************
  *                                                                            *
  * Copyright (C) 2020 Fondazione Istituto Italiano di Tecnologia (IIT)        *
@@ -9,15 +10,17 @@
  * @luca.triceri@iit.it
  */
 
-#include "gtest/gtest.h"
+#pragma once
 
-#include "Multiplier.h"
+#include <string>
 
-TEST(Multiplier, Test_001)
+class MultiplierFromDb
 {
+public:
+    explicit MultiplierFromDb(const std::string &name) : name_(name){};
+    double invoke(unsigned int leftIndex, unsigned int rightIndex) const;
 
-    Multiplier mult;
-    EXPECT_EQ(mult.invoke(1, 2), 2);
-    EXPECT_TRUE(mult.invoke(1, 2) == 2);
-    EXPECT_FALSE(mult.invoke(1, 2) == 3);
-}
+protected:
+    virtual double getData(unsigned int index) const;
+    const std::string name_;
+};

@@ -9,12 +9,12 @@
 
 include(CMakePackageConfigHelpers)
 
-set(LIBRARY_TARGET_NAME multiplier)
+set(LIBRARY_TARGET_NAME multiplierfromdb)
 
-set(MultiplierSrc    Multiplier.cpp
+set(MultiplierSrc    MultiplierFromDb.cpp
                         )
 
-set(MultiplierHdr   Multiplier.h
+set(MultiplierHdr   MultiplierFromDb.h
                        )
 
 add_library(${LIBRARY_TARGET_NAME} STATIC ${MultiplierSrc} ${MultiplierHdr})

@@ -7,17 +7,20 @@
 
 /**
  * @luca.triceri@iit.it
- */
+ */ 
 
-#include "gtest/gtest.h"
+#include <cstdlib>
+#include <ctime>
 
-#include "Multiplier.h"
+#include "MultiplierFromDb.h"
 
-TEST(Multiplier, Test_001)
+double MultiplierFromDb::invoke(unsigned int leftIndex,unsigned int rightIndex) const
 {
+    return getData(1)*getData(2);
+}
 
-    Multiplier mult;
-    EXPECT_EQ(mult.invoke(1, 2), 2);
-    EXPECT_TRUE(mult.invoke(1, 2) == 2);
-    EXPECT_FALSE(mult.invoke(1, 2) == 3);
+double MultiplierFromDb::getData(unsigned int index) const
+{
+    std::srand(std::time(nullptr));
+    return std::rand()%10;
 }
