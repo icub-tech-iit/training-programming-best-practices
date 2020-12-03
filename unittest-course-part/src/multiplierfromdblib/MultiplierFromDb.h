@@ -21,6 +21,6 @@ public:
     double invoke(unsigned int leftIndex, unsigned int rightIndex) const;
 
 protected:
-    virtual double getData(unsigned int index) const;
+    virtual double getDataFromDb(unsigned int index) const;
     const std::string name_;
 };
