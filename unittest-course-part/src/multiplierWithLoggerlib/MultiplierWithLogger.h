@@ -1,3 +1,4 @@
+
 /******************************************************************************
  *                                                                            *
  * Copyright (C) 2021 Fondazione Istituto Italiano di Tecnologia (IIT)        *
@@ -9,19 +10,15 @@
  * @luca.triceri@iit.it
  */
 
-#include "Multiplier.h"
-#include <stdexcept>
+#pragma once
 
-double Multiplier::invoke(double left, double right) const
-{
-	if(left==10)
-	{
-		throw std::invalid_argument("Wrong left argument");
-	}
-	return internalInvoke(left,right);
-}
+#include <string>
 
-double Multiplier::internalInvoke(double left, double right) const
+class MultiplierWithLogger
 {
-	return left * right;
-}
+   public:
+	double invoke(double, double) const;
+
+   protected:
+	std::string log(const std::string& str) const;
+};

@@ -9,19 +9,26 @@
  * @luca.triceri@iit.it
  */
 
-#include "Multiplier.h"
-#include <stdexcept>
+#include "MultiplierFromFile.h"
 
-double Multiplier::invoke(double left, double right) const
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
+
+double MultiplierFromFile::invoke(unsigned int leftIndex, unsigned int rightIndex) const
 {
-	if(left==10)
-	{
-		throw std::invalid_argument("Wrong left argument");
-	}
-	return internalInvoke(left,right);
+	return getDataFromFile(1) * getDataFromFile(2);
 }
 
-double Multiplier::internalInvoke(double left, double right) const
+double MultiplierFromFile::getDataFromFile(unsigned int) const
 {
-	return left * right;
+	std::ifstream ifs("data.txt");
+	double out;
+	ifs >> out;
+	return out;
+}
+
+double MultiplierFromFile::getDataFromFile(unsigned int, unsigned int) const
+{
+	return 0;
 }

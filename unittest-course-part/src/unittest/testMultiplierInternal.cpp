@@ -10,18 +10,27 @@
  */
 
 #include "Multiplier.h"
-#include <stdexcept>
+#include "gtest/gtest.h"
 
-double Multiplier::invoke(double left, double right) const
+// Simple UT with internal functions
+
+class TestMultiplier : public Multiplier
 {
-	if(left==10)
-	{
-		throw std::invalid_argument("Wrong left argument");
-	}
-	return internalInvoke(left,right);
+   public:
+	using Multiplier::internalInvoke;
+};
+
+TEST(InternalMultiplier, Test_simple001)
+{
+	TestMultiplier mult;
+	EXPECT_EQ(2,mult.internalInvoke(1, 2));
+	EXPECT_TRUE(mult.internalInvoke(1, 2) == 2);
+	EXPECT_FALSE(mult.internalInvoke(1, 2) == 3);
 }
 
-double Multiplier::internalInvoke(double left, double right) const
+TEST(InternalMultiplier, Test_simple002)
 {
-	return left * right;
+	TestMultiplier mult;
+	EXPECT_TRUE(mult.internalInvoke(1, 2) == 2);
+	EXPECT_FALSE(mult.internalInvoke(1, 2) == 3);
 }

@@ -9,19 +9,16 @@
  * @luca.triceri@iit.it
  */
 
-#include "Multiplier.h"
-#include <stdexcept>
+#include "MultiplierWithLogger.h"
 
-double Multiplier::invoke(double left, double right) const
-{
-	if(left==10)
-	{
-		throw std::invalid_argument("Wrong left argument");
-	}
-	return internalInvoke(left,right);
-}
-
-double Multiplier::internalInvoke(double left, double right) const
+double MultiplierWithLogger::invoke(double left, double right) const
 {
 	return left * right;
+}
+
+std::string MultiplierWithLogger::log(const std::string& str) const
+{
+	std::string out;
+	out="Severity Debug: "+str;
+	return out;
 }

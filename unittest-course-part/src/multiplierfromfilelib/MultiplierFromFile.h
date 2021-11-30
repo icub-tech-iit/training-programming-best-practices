@@ -1,3 +1,4 @@
+
 /******************************************************************************
  *                                                                            *
  * Copyright (C) 2021 Fondazione Istituto Italiano di Tecnologia (IIT)        *
@@ -9,19 +10,18 @@
  * @luca.triceri@iit.it
  */
 
-#include "Multiplier.h"
-#include <stdexcept>
+#pragma once
 
-double Multiplier::invoke(double left, double right) const
-{
-	if(left==10)
-	{
-		throw std::invalid_argument("Wrong left argument");
-	}
-	return internalInvoke(left,right);
-}
+#include <string>
 
-double Multiplier::internalInvoke(double left, double right) const
+class MultiplierFromFile
 {
-	return left * right;
-}
+   public:
+	explicit MultiplierFromFile(const std::string &name) : name_(name){};
+	double invoke(unsigned int leftIndex, unsigned int rightIndex) const;
+
+   private:
+	virtual double getDataFromFile(unsigned int index) const;
+	virtual double getDataFromFile(unsigned int index,unsigned int command) const;
+	const std::string name_;
+};
