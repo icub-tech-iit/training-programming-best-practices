@@ -52,4 +52,7 @@ https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics
 
 ## 3.3. Mocking Free Functions
 
+## 3.4. Reference
+http://google.github.io/googletest/gmock_cook_book.html
+
 
