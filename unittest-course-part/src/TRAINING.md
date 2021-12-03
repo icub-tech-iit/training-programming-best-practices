@@ -1,10 +1,64 @@
 
-# 1. UNITTEST
+# 1. WHY UNITTEST
+UNIT TESTING is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
 
-## 1.1. Modularize your code
+![alt text](../img/ut004.png)
+
+## 1.1. Early debug
+Unit tests help to fix bugs early in the development cycle and save costs.
+
+## 1.2. Avoid regressions so you can refactor your code
+When you have a suite of unit tests, you can run it iteratively to ensure that everything keeps working correctly every time you add new functionality or introduce changes.
+
+![alt text](../img/ut002.jpg)
+
+## 1.3. Document your code
+Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
+Note that in this way the code documentation is always updated (otherway the code doesn't compile)
+
+![alt text](../img/ut003.jpeg)
+
+## 1.4. Unit testing improves code coverage 
+
+Unit testing helps to improve code coverage.
+
+## 1.5. Unit Testing Myth
+- It requires time, and I am always overscheduled
+My code is rock solid! I do not need unit tests.
+- Programmers think that Integration Testing will catch all errors and do not execute the unit test. Once units are integrated, very simple errors which could have very easily found and fixed in unit tested take a very long time to be traced and fixed.
+
+Truth is Unit testing increase the speed of development.
+
+![alt text](../img/ut001.png)
+
+# 2. HOW TO UNITTEST
+
+## 2.1. Good practices for unit testing include
+- Creating tests for all publicly exposed functions, including class constructors and operators.
+- Covering all code paths and checking both trivial and **edge cases**, including those with incorrect input data (negative testing).
+- Assuring that each test works independently and does't prevent other tests from execution.
+- Organizing tests in a way that the order in which you run them doesn't affect the results.
+
+![alt text](../img/ut005.jpg)
+
+## 2.2. A single test
+A single unit test is a method that checks some specific functionality and has clear pass/fail criteria. The generalized structure of a single test looks like this:
+
+Test (TestGroupName, TestName)   {
+1. setup block
+2. running the under-test functionality
+3. checking the results (assertions block)
+}
+
+
+## 2.3. Modularize your code
 As code's testability depends on its design, unit tests facilitate breaking it into specialized easy-to-test pieces.
 An easy way to do this is to use self-consistent classes. Another usefull tecnique is the so called **dependance injection**.
 It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in ('injected') object is called a service. tests.   
+
+
+![alt text](../img/ut006.jpg)
+
 With no partcular tecnique:  
 ```c++
 class Test
@@ -53,59 +107,54 @@ class Test : public Database
 
 
 
-The use of the inheritance tecnique tightly couples parent class with child class. It is harder to reuse the code and write unit.
+The use of the inheritance tecnique tightly couples parent class with child class. It is harder to reuse the code and write unit.  
+Best choice: **dependance injection**.
+
+![alt text](../img/ut007.png)
 
 
-## 1.2. Avoid regressions so you can refactor your code
-When you have a suite of unit tests, you can run it iteratively to ensure that everything keeps working correctly every time you add new functionality or introduce changes.
+## 2.4. reference
+https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics  
+https://www.guru99.com/unit-testing-guide.html
 
-## 1.3. Document your code
-Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
-Note that this way to document the code is always updated (otherway the code doesn't compile)
+# 3. GTEST
+googletest is a testing framework developed by the Testing Technology team with Google’s specific requirements and constraints in mind. Whether you work on Linux, Windows, or a Mac.
 
-## 1.4. Good practices for unit testing include
-- Creating tests for all publicly exposed functions, including class constructors and operators.
-- Covering all code paths and checking both trivial and **edge cases**, including those with incorrect input data (negative testing).
-- Assuring that each test works independently and does't prevent other tests from execution.
-- Organizing tests in a way that the order in which you run them doesn't affect the results.
+## 3.1. The tests are simple
 
-## 1.5. A single test
-A single unit test is a method that checks some specific functionality and has clear pass/fail criteria. The generalized structure of a single test looks like this:
-
-Test (TestGroupName, TestName)   {
-1. setup block
-2. running the under-test functionality
-3. checking the results (assertions block)
+```c++
+TEST(Multiplier, Test_simple001)
+{
+	Multiplier mult;
+	EXPECT_EQ(2/*expected*/, mult.invoke(1, 2)/*current*/);
 }
+```
 
-## 1.6. reference
-https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics
+## 3.1. Use expected and current
 
-# 2. GTEST
-## 2.1. Use expected and actual
+## 3.2. Check non fatal/non fatal macro
 
-## 2.2. Check non fatal macro
+## 3.3. Test private members
 
-## 2.3. Check fatal macro
+## 3.4. Test exceptions
 
-## 2.4. Test private members
+## 3.5. Visual studio code
 
-## 2.5. Test exceptions
+## 3.6. References
+https://google.github.io/googletest/primer.html
 
-## 2.6. Visual studio code
+# 4. GMOCK
 
-# 3. GMOCK
+## 4.1. MOCK vs STUB
 
-## 3.1. MOCK vs STUB
+## 4.2. Mocking virtual method
 
-## 3.2. Mocking virtual method
+## 4.3. Mocking Free Functions
 
-## 3.3. Mocking Free Functions
-
-## 3.4. inject dependances
+## 4.4. inject dependances
 
 
-## 3.5. Reference
+## 4.5. Reference
 http://google.github.io/googletest/gmock_cook_book.html
 
 
