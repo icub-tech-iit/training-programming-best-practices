@@ -1,6 +1,6 @@
 
 # 1. WHY UNITTEST
-UNIT TESTING is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
+UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
 
 ![alt text](../img/ut004.png)
 
@@ -14,7 +14,7 @@ When you have a suite of unit tests, you can run it iteratively to ensure that e
 
 ## 1.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
-Note that in this way the code documentation is always updated (otherway the code doesn't compile)
+Note that in this way the code documentation is always updated (another way the code doesn't compile)
 
 ![alt text](../img/ut003.jpeg)
 
@@ -25,9 +25,9 @@ Unit testing helps to improve code coverage.
 ## 1.5. Unit Testing Myth
 - It requires time, and I am always overscheduled
 My code is rock solid! I do not need unit tests.
-- Programmers think that Integration Testing will catch all errors and do not execute the unit test. Once units are integrated, very simple errors which could have very easily found and fixed in unit tested take a very long time to be traced and fixed.
+- Programmers think that Integration Testing will catch all errors and do not execute the unit test. Once units are integrated, very simple errors which could have been very easily found and fixed in unit tested take a very long time to be traced and fixed.
 
-Truth is Unit testing increase the speed of development.
+The truth is Unit testing increase the speed of development.
 
 ![alt text](../img/ut001.png)
 
@@ -36,7 +36,7 @@ Truth is Unit testing increase the speed of development.
 ## 2.1. Good practices for unit testing include
 - Creating tests for all **publicly exposed** functions, including class constructors and operators.
 - Covering all code paths and checking both trivial and **edge cases**, including those with incorrect input data (negative testing).
-- Assuring that each test works independently and does't prevent other tests from execution.
+- Assuring that each test works independently and doesn't prevent other tests from execution.
 - Organizing tests in a way that the order in which you run them doesn't affect the results.
 
 ![alt text](../img/ut005.jpg)
@@ -54,7 +54,7 @@ Test (TestGroupName, TestName)   {
 ## 2.3. Modularize your code
 As code's testability depends on its design, unit tests facilitate breaking it into specialized easy-to-test pieces.
 An easy way to do this is to use self-consistent classes.  
-Another usefull tecnique is the so called **dependance injection**.
+Another useful technique is the so-called **dependence injection**.
 It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in ('injected') object is called a service. tests.   
 
 
@@ -77,7 +77,7 @@ class Test
 ```  
 With inheritance  
 ```c++
-class Test : public Database
+class Test: public Database
 {
     public:
         int getIntFromDatabase(const std::string& query)
@@ -89,7 +89,7 @@ class Test : public Database
 };
 ```
 
-With dependance injection  
+With dependency injection  
 ```c++
 class Test
 {
@@ -108,8 +108,8 @@ class Test
 ```
 
 
-The use of the inheritance tecnique tightly couples parent class with child class. It is harder to reuse the code and write unit.  
-Best choice: **dependance injection**.
+The use of the inheritance technique tightly couples parent class with child class. It is harder to reuse the code and write units.  
+Best choice: **dependency injection**.
 
 ![alt text](../img/ut007.png)
 
@@ -126,17 +126,17 @@ googletest is a testing framework developed by the Testing Technology team with 
 ```c++
 TEST(Multiplier, Test_simple001)
 {
-	Multiplier mult;
-	EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
+    Multiplier mult;
+    EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
 }
 ```
 
 ## 3.2. Expected and current order
 This is only a note to remember to correctly order the expected and current value.
 ```c++
-	EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
+    EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
 ```
-The unittest framework usually give the error log based on this assumption.
+The unittest framework usually gives the error log based on this assumption.
 
 ```
 ./training-programming-best-practices/unittest-course-part/src/unittest/testMultiplier.cpp:21: Failure
@@ -167,7 +167,7 @@ https://github.com/google/googletest/blob/main/docs/reference/assertions.md
 ## 3.4. Check fatal/non fatal macro
 ASSERT vs EXPECT  
 ```c++
-	EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
+    EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
     ASSERT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
 ```
 Assert abort the current test while Expect gives only the error but goes on.
@@ -178,7 +178,7 @@ If you find yourself writing two or more tests that operate on similar data, you
 
 ## 3.6. Test private members
 
-For testing private member we can use one of the c++ features.
+For testing private members we can use one of the c++ features.
 It is possible to change visibility over inherited members.
 
 ```c++
@@ -192,7 +192,7 @@ class Multiplier
 class TestMultiplier : public Multiplier
 {
    public:
-	    using Multiplier::internalInvoke;
+        using Multiplier::internalInvoke;
 };
 ```
 
@@ -229,17 +229,28 @@ FetchContent_Declare(
 https://google.github.io/googletest/primer.html
 
 # 4. GMOCK
+A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc).
 
-## 4.1. MOCK vs STUB
+## 4.1. How to
+When using gMock,
 
-## 4.2. Mocking virtual method
+- first, you use some simple macros to describe the interface you want to mock, and they will expand to the implementation of your mock class;
+- next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax;
+- then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.
 
-## 4.3. Mocking Free Functions
+## 4.2. MOCK vs STUB
+**Stub**: Stub is an object that holds predefined data and uses it to answer calls during tests. Such as an object that needs to grab some data from the database to respond to a method call.
 
-## 4.4. inject dependances
+**Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. Such as functionality that calls e-mail sending service. for more just check this.
+## 4.3. Mocking virtual method
+See tests
+
+## 4.5. dependency injection.
+
+Mocking needs dependency injection to work better.
 
 
-## 4.5. Reference
+## 4.6. Reference
 http://google.github.io/googletest/gmock_cook_book.html
 
 
