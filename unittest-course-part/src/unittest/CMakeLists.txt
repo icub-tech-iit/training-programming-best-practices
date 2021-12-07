@@ -20,7 +20,7 @@ set(CMAKE_INSTALL_RPATH ./)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
-target_link_libraries(${PROJECT_NAME}  gtest gmock multiplier multiplierfromfile multiplierWithLogger)
+target_link_libraries(${PROJECT_NAME}  gtest gmock multiplier multiplierfromfile pwm)
 
 # install
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

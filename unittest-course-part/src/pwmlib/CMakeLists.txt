@@ -9,15 +9,14 @@
 
 include(CMakePackageConfigHelpers)
 
-set(LIBRARY_TARGET_NAME multiplierWithLogger)
+set(LIBRARY_TARGET_NAME pwm)
 
-set(MultiplierWithLoggerSrc    MultiplierWithLogger.cpp
+set(PwmSrc    pwm.cpp
                         )
-
-set(MultiplierWithLoggerHdr   MultiplierWithLogger.h
+set(PwmHdr   pwm.h
                        )
 
-add_library(${LIBRARY_TARGET_NAME} STATIC ${MultiplierWithLoggerSrc} ${MultiplierWithLoggerHdr})
+add_library(${LIBRARY_TARGET_NAME} STATIC ${PwmSrc} ${PwmHdr})
 add_library(${PROJECT_NAME}::${LIBRARY_TARGET_NAME} ALIAS ${LIBRARY_TARGET_NAME})
 target_link_libraries(${LIBRARY_TARGET_NAME} PUBLIC ${Common_LIBRARIES})
 

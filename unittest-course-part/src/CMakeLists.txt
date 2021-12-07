@@ -9,5 +9,5 @@
 
 add_subdirectory(multiplierlib)
 add_subdirectory(multiplierfromfilelib)
-add_subdirectory(multiplierWithLoggerlib)
+add_subdirectory(pwmlib)
 

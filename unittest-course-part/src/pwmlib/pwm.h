@@ -14,11 +14,27 @@
 
 #include <string>
 
-class MultiplierWithLogger
+class Motor
 {
    public:
-	double invoke(double, double) const;
+	bool applay(double pwm) const
+	{
+		return true;
+	};
+};
+
+class Pwm
+{
+   public:
+	Pwm(Motor& motor, int minAnalogValue, int maxAnalogValue, int limitMinPwm, int limitMaxPwm);
+	double calculatePwm(unsigned int value) const;	// return a proportional pwm value for in
+	double pwmLimit(double& pwmValue) const;				// limit pwm
+	bool applayPwmToMotor(double pwm) const;		// limit pwm
 
    protected:
-	std::string log(const std::string& str) const;
+	int minAnalogValue_{0};
+	int maxAnalogValue_{1023};
+	int limitMinPwm_{0};
+	int limitMaxPwm_{100};
+	Motor& motor_;
 };
