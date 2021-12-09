@@ -11,26 +11,29 @@
 
 #include "pwm.h"
 
-Pwm::Pwm(Motor& motor, int minAnalogValue, int maxAnalogValue, int limitMinPwm, int limitMaxPwm)
-	: motor_(motor), minAnalogValue_(minAnalogValue_), maxAnalogValue_(maxAnalogValue_), limitMinPwm_(limitMinPwm), limitMaxPwm_(limitMaxPwm)
+Pwm::Pwm(Motor& motor, int minAnalogValue, int maxAnalogValue, int minPwmPercent, int maxPwmPercent)
+	: motor_(motor), minAnalogValue_(minAnalogValue_), maxAnalogValue_(maxAnalogValue_), minPwmPercent_(minPwmPercent), maxPwmPercent_(maxPwmPercent)
 {
 }
 
-double Pwm::calculatePwm(unsigned int value) const
+double Pwm::calculatePwmFromPercent(unsigned int pwmPercent) const
 {
-	return value * 100 / 1022;
+	double y=(double)(value-minPwmPercent_)(double)(maxAnalogValue_-minAnalogValue_)/(double)(maxPwmPercent_-minPwmPercent_)+(double)minAnalogValue_;
+	pwmLimit(y);
+	return y;
 }
 
 double Pwm::pwmLimit(double& pwmValue) const
 {
-	if (pwmValue < limitMinPwm_)
-		pwmValue = limitMinPwm_-1;
-	if (pwmValue > limitMaxPwm_)
-		pwmValue = limitMaxPwm_-1;
+	if (pwmValue < minPwmPercent_)
+		pwmValue = minPwmPercent_-1;
+	if (pwmValue > maxPwmPercent_)
+		pwmValue = maxPwmPercent_-1;
 	return pwmValue;
 }
 
-bool Pwm::applayPwmToMotor(double pwm) const
+bool Pwm::applyPwmToMotor(double pwm) const
 {
-	return motor_.applay(pwm);
+	return motor_.apply(pwm);
 }
+

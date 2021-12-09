@@ -1,7 +1,11 @@
 
 # 1. Prerequisite
-- Github account
-- Gitpod account
+- Github account (https://github.com/)
+- Gitpod account (https://www.gitpod.io/)
+- Installed Gitpod Extension for Chrome
+(https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
+- Authorized Access
+
 
 # 2. WHY UNITTEST
 UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
@@ -259,8 +263,8 @@ A mock object implements the same interface as a real object (so it can be used 
 ## 5.1. How to
 When using gMock,
 
-- first, you use some simple macros to describe the interface you want to mock, and they will expand to the implementation of your mock class;
-- next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax;
+- first, you use some simple macros to describe the interface you want to mock, and they will expand to the implementation of your mock class.
+- next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax.
 - then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.
 
 ## 5.2. MOCK vs STUB
@@ -278,7 +282,6 @@ http://google.github.io/googletest/gmock_cook_book.html
 
 
 # 6. GitPod
-
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
 ![alt](img/../../img/gitpod001.png)
