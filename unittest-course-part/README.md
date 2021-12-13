@@ -21,6 +21,7 @@ Increase code quality using the following tools:
 ### Material
 You can find some slides in the doc folder, daily update.
 You will use a prebuild docker machine via GitPod.
+Training: https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/src/TRAINING.md
 
 ### Prerequisites
 Gitpod account see https://www.gitpod.io/  
@@ -30,4 +31,4 @@ GitPod extension for Chrome see https://chrome.google.com/webstore/detail/gitpod
 Fork this repository
 
 ### Time and place 
-Unknown
+January
