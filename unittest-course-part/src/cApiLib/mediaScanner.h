@@ -10,16 +10,13 @@
  * @luca.triceri@iit.it
  */
 
+class InterfaceForCApi;
 
-#pragma once
-
-//interface to motor
-class Motor
+class MediaScanner
 {
    public:
-	virtual bool apply(double pwm) const
-	{
-        //...
-		return true;
-	};
+   MediaScanner(InterfaceForCApi& interface);
+	bool scan();
+
+   InterfaceForCApi &interfaceCApi_;
 };

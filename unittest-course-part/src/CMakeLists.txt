@@ -10,4 +10,4 @@
 add_subdirectory(multiplierlib)
 add_subdirectory(multiplierfromfilelib)
 add_subdirectory(pwmlib)
-
+add_subdirectory(cApiLib)
