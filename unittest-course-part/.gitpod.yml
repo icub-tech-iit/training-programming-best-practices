@@ -2,7 +2,7 @@
 tasks:
   - init: echo 'init script' # runs during prebuild
     command: echo 'start script'
-    command: apt-get install libudev-dev
+    command: sudo apt-get install libudev-dev
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
