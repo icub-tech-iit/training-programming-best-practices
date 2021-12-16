@@ -287,7 +287,7 @@ How to:
 ![alt](img/../../img/gitpod001.png)
 - Only for Visual Studio Code users. Install extension on Visual Studio Code. This step is not mandatory.  
 ![alt](img/../../img/gitpod002.png)
-- Enter GitPod with the button.  
+- Enter GitPod with the button (the first time it will take 5minutes).  
 ![alt](img/../../img/gitpod004.png)
 - Create build folder, create makefile and compile
   ```bash
