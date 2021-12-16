@@ -293,12 +293,13 @@ How to:
   ```bash
   cd /workspace/training-programming-best-practices/unittest-course-part
   mkdir build
-  cmake -DCMAKE_INSTALL_PREFIX=/workspace/training-programming-best-practices/install ..
+  cmake -DCMAKE_INSTALL_PREFIX=/workspace/training-programming-best-practices/unittest-course-part/install ..
   make install
   ```
+
 - Execute UT
 ```bash
-cd /workspace/training-programming-best-practices/install
+cd /workspace/training-programming-best-practices/install/bin
 ./unittest
 ```
    
