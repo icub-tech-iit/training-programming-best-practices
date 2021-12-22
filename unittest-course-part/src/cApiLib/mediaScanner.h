@@ -10,13 +10,15 @@
  * @luca.triceri@iit.it
  */
 
+#include <string>
+
 class InterfaceForCApi;
 
 class MediaScanner
 {
    public:
    MediaScanner(InterfaceForCApi& interface);
-	bool scan();
+	bool scan(const std::string& media);
 
    InterfaceForCApi &interfaceCApi_;
 };

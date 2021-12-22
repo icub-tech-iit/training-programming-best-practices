@@ -5,10 +5,10 @@ MediaScanner::MediaScanner(InterfaceForCApi& interface) : interfaceCApi_(interfa
 {
 }
 
-bool MediaScanner::scan()
+bool MediaScanner::scan(const std::string& media)
 {
 	// Open main device
-	int fd = interfaceCApi_.open_c("/dev/media0", O_RDWR);
+	int fd = interfaceCApi_.open_c(media.c_str(), O_RDWR);
 	if (fd == -1)
 	{
 		return false;

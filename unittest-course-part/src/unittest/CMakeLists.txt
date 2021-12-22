@@ -23,7 +23,7 @@ set(CMAKE_INSTALL_RPATH ./)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
-target_link_libraries(${PROJECT_NAME}  gtest gmock multiplier multiplierfromfile pwm mediascanner)
+target_link_libraries(${PROJECT_NAME}  udev gtest gmock multiplier multiplierfromfile pwm mediascanner)
 
 # install
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
