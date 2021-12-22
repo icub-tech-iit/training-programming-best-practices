@@ -15,3 +15,4 @@ vscode:
   extensions:
     - hbenl.vscode-test-explorer
     - twxs.cmake
+    - matepek.vscode-catch2-test-adapter
