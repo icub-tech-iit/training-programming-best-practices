@@ -4,7 +4,10 @@
 - Gitpod account (https://www.gitpod.io/)
 - Installed Gitpod Extension for Chrome
 (https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
-- Authorized Access
+- Authorized Access  
+  
+Not mandatory
+- In Gitpod install https://open-vsx.org/extension/hbenl/vscode-test-explorer
 
 
 # 2. WHY UNITTEST
