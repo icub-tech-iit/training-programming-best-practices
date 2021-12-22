@@ -34,7 +34,7 @@ class MultiplierFromFile_Mock : public MultiplierFromFile
 	}
 };
 
-TEST(MultiplierFromFile, Test_base_001)
+TEST(MultiplierFromFile, expect_call_base_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -44,7 +44,7 @@ TEST(MultiplierFromFile, Test_base_001)
 	mult.invoke(1, 2);
 }
 
-TEST(MultiplierFromFile, Test_times_001)
+TEST(MultiplierFromFile, expect_call_times_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -54,7 +54,7 @@ TEST(MultiplierFromFile, Test_times_001)
 	mult.invoke(1, 2);
 }
 
-TEST(MultiplierFromFile, Test_times_002)
+TEST(MultiplierFromFile, expect_call_times_002)
 {
 	MultiplierFromFile_Mock mult("Luca");
 	EXPECT_CALL(mult, getDataFromFile(1)).Times(AnyNumber());
@@ -63,7 +63,7 @@ TEST(MultiplierFromFile, Test_times_002)
 	mult.invoke(1, 2);
 }
 
-TEST(MultiplierFromFile, Test_match_001)
+TEST(MultiplierFromFile, expect_call_match_generic_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -72,7 +72,7 @@ TEST(MultiplierFromFile, Test_match_001)
 	mult.invoke(1, 2);
 }
 
-TEST(MultiplierFromFile, Test_match_002)
+TEST(MultiplierFromFile, expect_call_match_002)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -81,7 +81,7 @@ TEST(MultiplierFromFile, Test_match_002)
 	mult.invoke(1, 2);
 }
 
-TEST(MultiplierFromFile, Test_sequence_001)
+TEST(MultiplierFromFile, expect_call_sequence_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -92,7 +92,7 @@ TEST(MultiplierFromFile, Test_sequence_001)
 	mult.invoke(1, 2);
 }
 
-TEST(MultiplierFromFile, Test_return_001)
+TEST(MultiplierFromFile, expect_call_return_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -102,7 +102,7 @@ TEST(MultiplierFromFile, Test_return_001)
 	EXPECT_EQ(mult.invoke(1, 2), 110);
 }
 
-TEST(MultiplierFromFile, Test_return_002)
+TEST(MultiplierFromFile, expect_call_return_002)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -111,7 +111,7 @@ TEST(MultiplierFromFile, Test_return_002)
 	EXPECT_EQ(mult.invoke(1, 2), 81);
 }
 
-TEST(MultiplierFromFile, Test_returnparam_001)
+TEST(MultiplierFromFile, expect_call_returnparam_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -120,7 +120,7 @@ TEST(MultiplierFromFile, Test_returnparam_001)
 	EXPECT_EQ(mult.invoke2(1, 2), 25);
 }
 
-TEST(MultiplierFromFile, Test_returnparam_002)
+TEST(MultiplierFromFile, expect_call_returnparam_002)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
@@ -131,7 +131,7 @@ TEST(MultiplierFromFile, Test_returnparam_002)
 	EXPECT_EQ(mult.invoke2(1, 2), 25);
 }
 
-TEST(MultiplierFromFile, Test_returnparam_003)
+TEST(MultiplierFromFile, expect_call_returnparam_003)
 {
 	MultiplierFromFile_Mock mult("Luca");
 

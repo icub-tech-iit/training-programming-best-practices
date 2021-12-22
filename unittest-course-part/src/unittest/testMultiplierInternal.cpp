@@ -20,7 +20,7 @@ class TestMultiplier : public Multiplier
 	using Multiplier::internalInvoke;
 };
 
-TEST(InternalMultiplier, Test_simple001)
+TEST(InternalMultiplier, internal_method_simple001)
 {
 	TestMultiplier mult;
 	EXPECT_EQ(2,mult.internalInvoke(1, 2));
@@ -28,7 +28,7 @@ TEST(InternalMultiplier, Test_simple001)
 	EXPECT_FALSE(mult.internalInvoke(1, 2) == 3);
 }
 
-TEST(InternalMultiplier, Test_simple002)
+TEST(InternalMultiplier, internal_method_simple002)
 {
 	TestMultiplier mult;
 	EXPECT_TRUE(mult.internalInvoke(1, 2) == 2);

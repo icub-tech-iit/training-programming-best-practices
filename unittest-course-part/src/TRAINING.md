@@ -133,40 +133,64 @@ googletest is a testing framework developed by the Testing Technology team with 
 ## 4.1. The tests are simple
 
 ```c++
-TEST(Multiplier, Test_simple001)
+TEST(Multiplier, check_multiply_001)
 {
     Multiplier mult;
     EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
 }
 ```
 
-## 4.2. Expected and current order
+**CODE**: See test:testMultiplier.cpp
+
+## 4.2. Small important details
+
+![alt text](../img/ut008.png)
+
+### 4.2.1. Expected and current order
 This is only a note to remember to correctly order the expected and current value.
 ```c++
-    EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
+    EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
 ```
 The unittest framework usually gives the error log based on this assumption.
 
 ```
 ./training-programming-best-practices/unittest-course-part/src/unittest/testMultiplier.cpp:21: Failure
 Expected equality of these values:
-  5
-  mult.invoke(1, 2)
-    Which is: 2
+  8
+  mult.invoke(4, 2)
+    Which is: 7
 [  FAILED  ] Multiplier.Test_simple001 (0 ms)
 ```
+
+### 4.2.2. Name
+
+Choose good names for tests see for reference:https://dev.to/canro91/unit-testing-best-practices-6-tips-for-better-names-524m.
+
+
+- Choose a naming convention for your test names and stick to it.
+- Every test name should tell the scenario under test and the expected result. Don't worry about long test names. But, don't name your tests: Test1, Test2 and so on.
+- Describe in your test names what your testing in a language easy to understand even for non-programmers.
+
+❌ Don't prefix your test names with "Test". If you're using a testing framework that doesn't need keywords in your test names, don't do that.  
+
+![alt text](../img/ut009.jpg)
 
 ## 4.3. Check macro
 Other EXPECT and ASSERT macro exist:  
 ```c++
+EXPECT_TRUE
+EXPECT_FALSE
 EXPECT_EQ  
 EXPECT_NE
 EXPECT_GT
 ...
+ASSERT_TRUE
+ASSERT_FALSE
 ASSERT_EQ  
 ASSERT_NE
 ASSERT_GT
 ...
+FAIL
 ```
 
 See also:  
@@ -185,6 +209,8 @@ Expect is preferred.
 ## 4.5. Fixtures
 If you find yourself writing two or more tests that operate on similar data, you can use a test fixture. This allows you to reuse the same configuration of objects for several different tests.
 
+
+**CODE**: See test:testMultiplierParamAndFixture.cpp
 ## 4.6. Test private members
 
 For testing private members we can use one of the c++ features.
@@ -205,14 +231,19 @@ class TestMultiplier : public Multiplier
 };
 ```
 
+**CODE**: See test:testMultiplierInternal.cpp
+
 ## 4.7. Test exceptions
 Also thrown exceptions can be tested.
 ```c++
 EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 ```
 
+**CODE**: See test:testMultiplier.cpp
+
 ## 4.8. Test with parameters
-Reference to test testMultiplier.cpp
+
+**CODE**: See test:testMultiplierParamAndFixture.cpp
 
 ## 4.9. The main
 Quite easy to write:
@@ -254,11 +285,13 @@ FetchContent_Declare(
 )
 ```
 
-## 4.12. References
+## 4.12. References for gtest
 https://google.github.io/googletest/primer.html
 
 # 5. GMOCK
 A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc).
+
+![alt text](../img/ut010.jpg)
 
 ## 5.1. How to
 When using gMock,
@@ -268,16 +301,44 @@ When using gMock,
 - then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.
 
 ## 5.2. MOCK vs STUB
+
+Mocking is a way to replace a dependency in a unit under test with a stand-in for that dependency. The stand-in allows the unit under test to be tested without invoking the real dependency. 
+
 **Stub**: Stub is an object that holds predefined data and uses it to answer calls during tests. Such as an object that needs to grab some data from the database to respond to a method call.
 
-**Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. Such as functionality that calls e-mail sending service. for more just check this.
+**Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. A mock is like a stub but the test will also verify that the object under test calls the mock as expected. Part of the test is verifying that the mock was used correctly.
 
-## 5.4. Dependency injection.
+## 5.3. Dependency injection.
 
 Mocking needs dependency injection to work better.
+[See above](#33-modularize-your-code)
+
+## 5.4. Disclaimed
+This part of the course will be done by examples.
 
 
-## 5.5. Reference
+## 5.5. Simple mock
+First of all you need to mock the class and method we do not want to test directly.
+```c++
+class ...
+{
+    ...
+    MOCK_METHOD(double, getDataFromFile, (unsigned int), (const, override));  // note the parentesis
+}
+```
+**CODE**: See test:testMultiplierFromFile.cpp
+
+## 5.6. Simple tests
+
+**CODE**: See test:testMultiplierFromFile.cpp
+
+## 5.7. Test c std API
+In this case is necessary write a class for overlap the c API.  
+See file: InterfaceForCApi.h
+
+**CODE**: See test:testMediaScanner.cpp
+
+## 5.8. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
 
