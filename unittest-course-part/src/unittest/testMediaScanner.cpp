@@ -38,7 +38,7 @@ TEST(MediaScanner, MediaScanner_simple_001)
 	EXPECT_CALL(api, open_c(_,_)).Times(2);
 	EXPECT_CALL(api, udev_new_c()).Times(2);
 
-	EXPECT_FALSE(mediaScanner.scan("/dev/media0"));git status
+	EXPECT_FALSE(mediaScanner.scan("/dev/media0"));
 	EXPECT_FALSE(mediaScanner.scan("/dev/v4l"));
 }
 

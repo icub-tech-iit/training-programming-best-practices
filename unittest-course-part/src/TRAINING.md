@@ -5,10 +5,6 @@
 - Installed Gitpod Extension for Chrome
 (https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
 - Authorized Access  
-  
-Not mandatory
-- In Gitpod install https://open-vsx.org/extension/hbenl/vscode-test-explorer
-
 
 # 2. WHY UNITTEST
 UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
@@ -270,9 +266,7 @@ or you can use wildcard:
 
 ## 4.10. Visual studio code
 VC is perfectly integrated with gtest, install the test explorer extension see:  
-https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer
-
-![alt text](../img/vc002.png)
+https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter
 
 The test explorer:  
 
