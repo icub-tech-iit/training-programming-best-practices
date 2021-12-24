@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "functional": "cpp"
+    }
+    ,"testMate.cpp.test.executables": "${workspaceFolder}/install/bin/unittest"
+}

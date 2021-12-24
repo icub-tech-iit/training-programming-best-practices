@@ -1,15 +1,35 @@
+| | |
+|:---|:---|
+| **Objectives** |Increase code quality by example |
+| **Teacher** |Luca Tricerri|
+| **Duration** |3 sessions each of 1 hour|
+| **Prerequisites** |basic C++11 or Java|
+| **Class Max Size** |10|
 
-# 1. Prerequisite
+# 1. Description
+Increase code quality using unit test via gtest and gmock.
+
+## 1.1. Main Topics
+- Unit test introduction
+- How to unittest with gtest
+- What is moking?
+- How to mock with gmock
+
+## 1.2. When
+End of January, if possibile in presence.
+
+## 1.3. Prerequisite
 - Github account (https://github.com/)
 - Gitpod account (https://www.gitpod.io/)
 - Installed Gitpod Extension for Chrome
 (https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
-- Authorized Access  
+- Authorized Access
+- Fork this repository  
 
 # 2. WHY UNITTEST
 UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
 
-![alt text](../img/ut004.png)
+![alt text](img/ut004.png)
 <p style="text-align: center;"><i> The so called tests pyramid</i></p>
 
 ## 2.1. Early debug
@@ -18,13 +38,13 @@ Unit tests help to fix bugs early in the development cycle and save costs.
 ## 2.2. Avoid regressions so you can refactor your code
 When you have a suite of unit tests, you can run it iteratively to ensure that everything keeps working correctly every time you add new functionality or introduce changes. This helps **refactoring** a lot.
 
-![alt text](../img/ut002.jpg)
+![alt text](img/ut002.jpg)
 
 ## 2.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
 Note that in this way the code documentation is always updated (another way the code doesn't compile)
 
-![alt text](../img/ut003.jpeg)
+![alt text](img/ut003.jpeg)
 
 ## 2.4. Unit testing improves code coverage 
 
@@ -37,7 +57,7 @@ My code is rock solid! I do not need unit tests.
 
 The truth is Unit testing increase the speed of development.
 
-![alt text](../img/ut001.png)
+![alt text](img/ut001.png)
 
 # 3. HOW TO UNITTEST
 
@@ -47,7 +67,7 @@ The truth is Unit testing increase the speed of development.
 - Assuring that each test works independently and doesn't prevent other tests from execution.
 - Organizing tests in a way that the order in which you run them doesn't affect the results.
 
-![alt text](../img/ut005.jpg)
+![alt text](img/ut005.jpg)
 
 ## 3.2. A single test
 A single unit test is a method that checks some specific functionality and has clear pass/fail criteria. The generalized structure of a single test looks like this:
@@ -66,7 +86,7 @@ Another useful technique is the so-called **dependence injection**.
 It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in ('injected') object is called a service. tests.   
 
 
-![alt text](../img/ut006.jpg)
+![alt text](img/ut006.jpg)
 
 With no partcular tecnique:  
 ```c++
@@ -119,7 +139,7 @@ class Test
 The use of the inheritance technique tightly couples parent class with child class. It is harder to reuse the code and write units.  
 Best choice: **dependency injection**.
 
-![alt text](../img/ut007.png)
+![alt text](img/ut007.png)
 
 
 ## 3.4. Reference for Unittest
@@ -148,7 +168,7 @@ TEST(Multiplier, check_multiply_001)
 
 ## 4.2. Small important details
 
-![alt text](../img/ut008.png)
+![alt text](img/ut008.png)
 
 ### 4.2.1. Expected and current order
 This is only a note to remember to correctly order the expected and current value.
@@ -177,7 +197,7 @@ Choose good names for tests see for reference:https://dev.to/canro91/unit-testin
 
 ❌ Don't prefix your test names with "Test". If you're using a testing framework that doesn't need keywords in your test names, don't do that.  
 
-![alt text](../img/ut009.jpg)
+![alt text](img/ut009.jpg)
 
 ## 4.3. Check macro
 Other EXPECT and ASSERT macro exist:  
@@ -275,7 +295,7 @@ https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-a
 
 The test explorer:  
 
-![alt text](../img/vc001.png)
+![alt text](img/vc001.png)
 
 ## 4.11. How to cmake
 
@@ -293,7 +313,7 @@ https://google.github.io/googletest/primer.html
 # 5. GMOCK
 A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc).
 
-![alt text](../img/ut010.jpg)
+![alt text](img/ut010.jpg)
 
 ## 5.1. How to
 When using gMock,
@@ -347,11 +367,11 @@ http://google.github.io/googletest/gmock_cook_book.html
 # 6. GitPod
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
-![alt](img/../../img/gitpod001.png)
+![alt](img/img/gitpod001.png)
 - Only for Visual Studio Code users. Install extension on Visual Studio Code. This step is not mandatory.  
-![alt](img/../../img/gitpod002.png)
+![alt](img/img/gitpod002.png)
 - Enter GitPod with the button (the first time it will take 5minutes).  
-![alt](img/../../img/gitpod004.png)
+![alt](img/img/gitpod004.png)
 - Create build folder, create makefile and compile
   ```bash
   cd /workspace/training-programming-best-practices/unittest-course-part

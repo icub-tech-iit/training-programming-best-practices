@@ -2,4 +2,4 @@
 Refer to [general part](generic-course-part/README.md)
 
 # Course unittest part
-Refer to [unittest part](unittest-course-part/README.md)
+Refer to [unittest part](TRAINING.md)
