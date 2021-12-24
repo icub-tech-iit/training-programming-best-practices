@@ -11,22 +11,27 @@ Increase code quality using unit test via gtest and gmock.
 
 ## 1.1. Main Topics
 - Unit test introduction
-- How to unittest with gtest
+- How to unit test with gtest
 - What is moking?
 - How to mock with gmock
 
 ## 1.2. When
-End of January, if possibile in presence.
+End of January, if possible in presence.
 
 ## 1.3. Prerequisite
 - Github account (https://github.com/)
 - Gitpod account (https://www.gitpod.io/)
+- Fork this repository  
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/icub-tech-iit/training-programming-best-practices)
+
+Optional
 - Installed Gitpod Extension for Chrome
 (https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
 - Authorized Access
-- Fork this repository  
 
-# 2. WHY UNITTEST
+
+# 2. WHY UNIT TEST
 UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
 
 ![alt text](img/ut004.png)
@@ -59,7 +64,7 @@ The truth is Unit testing increase the speed of development.
 
 ![alt text](img/ut001.png)
 
-# 3. HOW TO UNITTEST
+# 3. HOW TO UNIT TEST
 
 ## 3.1. Good practices for unit testing include
 - Creating tests for all **publicly exposed** functions, including class constructors and operators.
@@ -137,7 +142,7 @@ class Test
 
 
 The use of the inheritance technique tightly couples parent class with child class. It is harder to reuse the code and write units.  
-Best choice: **dependency injection**.
+<h3>Best choice: dependency injection.</h3>
 
 ![alt text](img/ut007.png)
 
@@ -148,11 +153,6 @@ https://www.guru99.com/unit-testing-guide.html
 
 # 4. GTEST
 googletest is a testing framework developed by the Testing Technology team with Google’s specific requirements and constraints in mind. Whether you work on Linux, Windows, or a Mac.
-
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/icub-tech-iit/training-programming-best-practices)
-
-
 
 ## 4.1. The tests are simple
 
@@ -175,7 +175,7 @@ This is only a note to remember to correctly order the expected and current valu
 ```c++
     EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
 ```
-The unittest framework usually gives the error log based on this assumption.
+The unit test framework usually gives the error log based on this assumption.
 
 ```
 ./training-programming-best-practices/unittest-course-part/src/unittest/testMultiplier.cpp:21: Failure
@@ -188,7 +188,7 @@ Expected equality of these values:
 
 ### 4.2.2. Name
 
-Choose good names for tests see for reference:https://dev.to/canro91/unit-testing-best-practices-6-tips-for-better-names-524m.
+Choose good names for tests, see for reference:https://dev.to/canro91/unit-testing-best-practices-6-tips-for-better-names-524m.
 
 
 - Choose a naming convention for your test names and stick to it.
@@ -340,7 +340,7 @@ This part of the course will be done by examples.
 
 
 ## 5.5. Simple mock
-First of all you need to mock the class and method we do not want to test directly.
+First of all, you need to mock the class and method we do not want to test directly.
 ```c++
 class ...
 {
@@ -355,7 +355,7 @@ class ...
 **CODE**: See test:testMultiplierFromFile.cpp
 
 ## 5.7. Test c std API
-In this case is necessary write a class for overlap the c API.  
+In this case, is necessary to write a class to overlap the c API.  
 See file: InterfaceForCApi.h
 
 **CODE**: See test:testMediaScanner.cpp
@@ -367,11 +367,11 @@ http://google.github.io/googletest/gmock_cook_book.html
 # 6. GitPod
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
-![alt](img/img/gitpod001.png)
+![alt](img/gitpod001.png)
 - Only for Visual Studio Code users. Install extension on Visual Studio Code. This step is not mandatory.  
-![alt](img/img/gitpod002.png)
+![alt](img/gitpod002.png)
 - Enter GitPod with the button (the first time it will take 5minutes).  
-![alt](img/img/gitpod004.png)
+![alt](img/gitpod004.png)
 - Create build folder, create makefile and compile
   ```bash
   cd /workspace/training-programming-best-practices/unittest-course-part
