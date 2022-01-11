@@ -1,10 +1,10 @@
-| | |
-|:---|:---|
-| **Objectives** |Increase code quality by example |
-| **Teacher** |Luca Tricerri|
-| **Duration** |3 sessions each of 1 hour|
-| **Prerequisites** |basic C++11 or Java|
-| **Class Max Size** |10|
+|                    |                                  |
+| :----------------- | :------------------------------- |
+| **Objectives**     | Increase code quality by example |
+| **Teacher**        | Luca Tricerri                    |
+| **Duration**       | 3 sessions each of 1 hour        |
+| **Prerequisites**  | basic C++11 or Java              |
+| **Class Max Size** | 10                               |
 
 # 1. Description
 Increase code quality using unit test via gtest and gmock.
@@ -235,7 +235,12 @@ If you find yourself writing two or more tests that operate on similar data, you
 
 
 **CODE**: See test:testMultiplierParamAndFixture.cpp
-## 4.6. Test private members
+
+## 4.6. Test with parameters
+
+**CODE**: See test:testMultiplierParamAndFixture.cpp
+
+## 4.7. Test private members
 
 For testing private members we can use one of the c++ features.
 It is possible to change visibility over inherited members.
@@ -257,7 +262,7 @@ class TestMultiplier : public Multiplier
 
 **CODE**: See test:testMultiplierInternal.cpp
 
-## 4.7. Test exceptions
+## 4.8. Test exceptions
 Also thrown exceptions can be tested.
 ```c++
 EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
@@ -265,11 +270,36 @@ EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 
 **CODE**: See test:testMultiplier.cpp
 
-## 4.8. Test with parameters
+## 4.9. Test death
 
-**CODE**: See test:testMultiplierParamAndFixture.cpp
+If we expect that a function close the program with an error that contains "must be true".
 
-## 4.9. The main
+```c++
+TEST(MyClassTest, foo_death_test) 
+{
+  MyClass myclass();
+  EXPECT_DEATH( { myclass.foo(); }, "must be true");
+}
+```
+Plain exits:
+
+```c++
+TEST(MyDeathTest, NormalExit) 
+{
+  EXPECT_EXIT(NormalExit(), testing::ExitedWithCode(0), "Success");
+}
+```
+
+Exit due to a signal and an error that match "Sending myself unblockable signal"
+
+```c++
+TEST(MyDeathTest, KillProcess) 
+{
+  EXPECT_EXIT(KillProcess(), testing::KilledBySignal(SIGKILL),"Sending myself unblockable signal");
+}
+```
+
+## 4.10. The main
 Quite easy to write:
 ```c++
 #include "gtest/gtest.h"
@@ -289,7 +319,7 @@ or you can use wildcard:
    ::testing::GTEST_FLAG(filter) = "Test.T*";
 ```
 
-## 4.10. Visual studio code
+## 4.11. Visual studio code
 VC is perfectly integrated with gtest, install the test explorer extension see:  
 https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter
 
@@ -297,7 +327,7 @@ The test explorer:
 
 ![alt text](img/vc001.png)
 
-## 4.11. How to cmake
+## 4.12. How to cmake
 
 ```cmake
 include(FetchContent)
@@ -307,7 +337,7 @@ FetchContent_Declare(
 )
 ```
 
-## 4.12. References for gtest
+## 4.13. References for gtest
 https://google.github.io/googletest/primer.html
 
 # 5. GMOCK
