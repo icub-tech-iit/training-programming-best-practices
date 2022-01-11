@@ -275,7 +275,7 @@ EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 If we expect that a function close the program with an error that contains "must be true".
 
 ```c++
-TEST(MyClassTest, foo_death_test) 
+TEST(MyDeathTest, Exit) 
 {
   MyClass myclass();
   EXPECT_DEATH( { myclass.foo(); }, "must be true");
