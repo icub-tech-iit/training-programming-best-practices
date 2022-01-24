@@ -231,7 +231,7 @@ Choose good names for tests, see for reference:https://dev.to/canro91/unit-testi
 ___
 :pushpin:   
 By Joel:  
-the infamous Hungarian naming convention
+the infamous Hungarian naming convention:  
 https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/
 
 ## 4.3. Check macro
@@ -277,7 +277,7 @@ If you find yourself writing two or more tests that operate on similar data, you
 
 ## 4.7. Test private members
 
-For testing private members we can use one of the c++ features.
+For testing private members we can use one of the c++ `most hidden` features.
 It is possible to change visibility over inherited members.
 
 ```c++
@@ -294,6 +294,8 @@ class TestMultiplier : public Multiplier
         using Multiplier::internalInvoke;
 };
 ```
+
+The only prerequisite is that the method should be `virtual`.
 
 **CODE**: See test:testMultiplierInternal.cpp
 
@@ -362,6 +364,13 @@ The test explorer:
 
 ![alt text](img/vc001.png)
 
+:heavy_check_mark:
+It could be necessari to add in settings.json:
+```
+testMate.cpp.test.executables": "${workspaceFolder}/install/bin/unittest"
+```
+With your install path.
+
 ## 4.12. How to cmake
 
 ```cmake
@@ -375,19 +384,26 @@ FetchContent_Declare(
 ## 4.13. References for gtest
 https://google.github.io/googletest/primer.html
 
-# 5. GMOCK
+# 5. Exercises
+
+## 5.1. The division class 
+- Complete the division class (take a look at the Multiplier class)
+- As input the method invoke can have only number > -30.
+- Add the unit test for the class. Be carefull with the edge cases.
+
+# 6. GMOCK
 A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc).
 
 ![alt text](img/ut010.jpg)
 
-## 5.1. How to
+## 6.1. How to
 When using gMock,
 
 - first, you use some simple macros to describe the interface you want to mock, and they will expand to the implementation of your mock class.
 - next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax.
 - then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.
 
-## 5.2. MOCK vs STUB
+## 6.2. MOCK vs STUB
 
 Mocking is a way to replace a dependency in a unit under test with a stand-in for that dependency. The stand-in allows the unit under test to be tested without invoking the real dependency. 
 
@@ -395,16 +411,16 @@ Mocking is a way to replace a dependency in a unit under test with a stand-in fo
 
 **Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. A mock is like a stub but the test will also verify that the object under test calls the mock as expected. Part of the test is verifying that the mock was used correctly.
 
-## 5.3. Dependency injection.
+## 6.3. Dependency injection.
 
 Mocking needs dependency injection to work better.
 [See above](#33-modularize-your-code)
 
-## 5.4. Disclaimed
+## 6.4. Disclaimed
 This part of the course will be done by examples.
 
 
-## 5.5. Simple mock
+## 6.5. Simple mock
 First of all, you need to mock the class and method we do not want to test directly.
 ```c++
 class ...
@@ -415,21 +431,21 @@ class ...
 ```
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 5.6. Simple tests
+## 6.6. Simple tests
 
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 5.7. Test c std API
+## 6.7. Test c std API
 In this case, is necessary to write a class to overlap the c API.  
 See file: InterfaceForCApi.h
 
 **CODE**: See test:testMediaScanner.cpp
 
-## 5.8. Reference for gmock
+## 6.8. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
 
-# 6. GitPod
+# 7. GitPod
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
 ![alt](img/gitpod001.png)

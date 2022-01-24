@@ -65,17 +65,18 @@ TEST_P(MultiplierParamIntTest, param_integer_001)
 
 //--
 
-class MultiplierParamTupleTest : public ::testing::TestWithParam<std::tuple<int, int>>
+class MultiplierParamTupleTest : public ::testing::TestWithParam<std::tuple<int, int, int>>
 {
    protected:
 	Multiplier mult_;
 };
 
-INSTANTIATE_TEST_CASE_P(WithParamMultiple, MultiplierParamTupleTest, ::testing::Values(std::make_tuple(1, 2), std::make_tuple(2, 4), std::make_tuple(3, 6)));
+INSTANTIATE_TEST_CASE_P(WithParamMultiple, MultiplierParamTupleTest, ::testing::Values(std::make_tuple(1, 2, 2), std::make_tuple(2, 4, 8), std::make_tuple(3, 6, 18)));
 
 TEST_P(MultiplierParamTupleTest, param_tuple_001)
 {
-	int tmp = std::get<0>(GetParam());
-	int result = std::get<1>(GetParam());
-	EXPECT_EQ(result, mult_.invoke(tmp, 2));
+	int left = std::get<0>(GetParam());
+	int right = std::get<1>(GetParam());
+	int result = std::get<2>(GetParam());
+	EXPECT_EQ(result, mult_.invoke(left,right));
 }

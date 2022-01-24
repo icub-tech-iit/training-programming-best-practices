@@ -35,6 +35,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 
+add_subdirectory(divisionlib)
 add_subdirectory(multiplierlib)
 add_subdirectory(multiplierfromfilelib)
 add_subdirectory(pwmlib)
