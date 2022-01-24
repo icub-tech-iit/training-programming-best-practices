@@ -20,6 +20,7 @@ TEST(Multiplier, multiply_check_positive_001)
 	Multiplier mult;
 	// EXPECT_EQ(expected,actual);<<<----expected,actual
 	EXPECT_EQ(2, mult.invoke(1, 2));
+	ASSERT_EQ(2, mult.invoke(1, 2));
 	// ASSERT_FALSE(mult.invoke(1, 2) == 2);
 }
 

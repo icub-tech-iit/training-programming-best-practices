@@ -33,30 +33,50 @@ Optional
 (https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
 - Authorized Access
 
-
 # 2. WHY UNIT TEST
+:question: So how can I test my software? `There are several ways to do that`.  
+
 UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
 
 ![alt text](img/ut004.png)
 <p style="text-align: center;"><i> The so called tests pyramid</i></p>
 
+
+:question: What are the advantages to write unit tests?  
 ## 2.1. Early debug
 Unit tests help to fix bugs early in the development cycle and save costs.
+In this stage the software is more easy to debug:
+- It is smaller.
+- It is less interdipendent to others parts.
+
+___
+:pushpin: **Marconi's approach to software testing.**  
+Marconi was a large company that developed a particular mobile phone technology called TETRA. It was a kind of GSM / UMTS / 4G mobile phone network for police and military forces.
+They had created a test group in Florence with about 20 telecommunications engineers, they had poor results.
+The head of the test group decided to take 20 philosophy graduates instead of engineers. I was among the ones that developed the TETRA, I was there in that mess. In the beginning, the so-called monkey tests were an incredible success. Bug after bugs, but... as the testers were not technicians they report on the tests were almost impossible to reproduce. So in the end, the 20 philosophy graduates went back to their studies.   
+**The system was too complex to be tested all together.**
+___
+
 
 ## 2.2. Avoid regressions so you can refactor your code
 When you have a suite of unit tests, you can run it iteratively to ensure that everything keeps working correctly every time you add new functionality or introduce changes. This helps **refactoring** a lot.
 
 ![alt text](img/ut002.jpg)
 
+:question: What is refactoring?  
+ Using an Agile methodology we continuously develop new and unplanned features from the beginning. In this context, the application architecture may become unstable. Periodic refactoring is important.
+
 ## 2.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
-Note that in this way the code documentation is always updated (another way the code doesn't compile)
+Note that in this way the code documentation is always updated (otherwise the code doesn't compile)
 
 ![alt text](img/ut003.jpeg)
 
 ## 2.4. Unit testing improves code coverage 
 
-Unit testing helps to improve code coverage.
+Unit testing helps to improve code coverage.  
+:question:What is test coverage?  
+It is a technique to ensure that your tests are testing your code or how much of your code you exercised by running the test. Are there code parts not tested?
 
 ## 2.5. Unit Testing Myth
 - It requires time, and I am always overscheduled
@@ -91,14 +111,14 @@ Test (TestGroupName, TestName)   {
 As code's testability depends on its design, unit tests facilitate breaking it into specialized easy-to-test pieces.
 An easy way to do this is to use self-consistent classes.  
 Another useful technique is the so-called **dependence injection**.
-It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in ('injected') object is called a service. tests.   
+It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in ('injected') object is called a service.   
 
 
 ![alt text](img/ut006.jpg)
 
 With no partcular tecnique:  
 ```c++
-class Test
+class MyClass
 {
     private:
         Database mydatabase_;
@@ -113,7 +133,7 @@ class Test
 ```  
 With inheritance  
 ```c++
-class Test: public Database
+class MyClass: public Database
 {
     public:
         int getIntFromDatabase(const std::string& query)
@@ -127,12 +147,12 @@ class Test: public Database
 
 With dependency injection  
 ```c++
-class Test
+class MyClass
 {
     private:
         Database& mydatabase_;
     public:
-        Test(Database &mydatabase):mydatabase_(mydatabase)
+        MyClass(Database &mydatabase):mydatabase_(mydatabase)
         {}
         int getIntFromDatabase(const std::string& query)
         {
@@ -151,11 +171,17 @@ The use of the inheritance technique tightly couples parent class with child cla
 
 
 ## 3.4. Reference for Unittest
-https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics  
-https://www.guru99.com/unit-testing-guide.html
+- https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics  
+- https://www.guru99.com/unit-testing-guide.html  
+- Test coverage: https://www.guru99.com/test-coverage-in-software-testing.html#1
 
 # 4. GTEST
 googletest is a testing framework developed by the Testing Technology team with Google’s specific requirements and constraints in mind. Whether you work on Linux, Windows, or a Mac.
+- very well done
+- very well supported
+- cmake friend
+- visual studio code friend
+- cross platform
 
 ## 4.1. The tests are simple
 
@@ -201,6 +227,12 @@ Choose good names for tests, see for reference:https://dev.to/canro91/unit-testi
 ❌ Don't prefix your test names with "Test". If you're using a testing framework that doesn't need keywords in your test names, don't do that.  
 
 ![alt text](img/ut009.jpg)
+
+___
+:pushpin:   
+By Joel:  
+the infamous Hungarian naming convention
+https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/
 
 ## 4.3. Check macro
 Other EXPECT and ASSERT macro exist:  
