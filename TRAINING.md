@@ -21,9 +21,12 @@ End of January, if possible in presence.
 ## 1.3. Prerequisite
 - Github account (https://github.com/)
 - Gitpod account (https://www.gitpod.io/)
-- Fork this repository  
+- Fork this repository 
+- To open the forked repo on Gitpod use the following button.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/icub-tech-iit/training-programming-best-practices)
+
+- [What is Gitpod?](https://www.gitpod.io/docs/getting-started)
 
 Optional
 - Installed Gitpod Extension for Chrome

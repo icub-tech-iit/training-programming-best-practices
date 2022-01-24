@@ -115,7 +115,8 @@ TEST(MultiplierFromFile, expect_call_returnparam_001)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
-	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(SetArgReferee<1>(5));
+	double value=5;
+	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5),Return(5)));
 
 	EXPECT_EQ(25, mult.invoke2(1, 2));
 }
@@ -140,15 +141,14 @@ TEST(MultiplierFromFile, expect_call_returnparam_003)
 	EXPECT_EQ(mult.invoke2(1, 2), 25);
 }
 
-/*
+
 TEST(MultiplierFromFile, Test_returnparam_004)
 {
 	MultiplierFromFile_Mock mult("Luca");
 
-	EXPECT_CALL(mult, getDataFromFile(_,An<double*>())).WillRepeatedly(SetArgPointee<1>(5));
+	EXPECT_CALL(mult, getDataFromFile(_,An<double*>())).WillRepeatedly(DoAll(SetArgPointee<1>(5),Return(5)));
 
-	EXPECT_EQ(mult.invoke2(1, 2), 25);
+	EXPECT_EQ(25,mult.invoke3(1, 2));
 
-	delete a;
 }
-*/
+
