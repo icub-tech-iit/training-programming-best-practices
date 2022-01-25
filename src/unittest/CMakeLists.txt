@@ -15,6 +15,7 @@ set(SOURCES gtest_main.cc
             testMultiplierFromFile.cpp
             testPwm.cpp
             testMediaScanner.cpp
+            testDivision.cpp
             testMultiplierParamAndFixture.cpp
             )
 
@@ -23,7 +24,7 @@ set(CMAKE_INSTALL_RPATH ./)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
-target_link_libraries(${PROJECT_NAME}  udev gtest gmock multiplier multiplierfromfile pwm mediascanner)
+target_link_libraries(${PROJECT_NAME}  udev gtest gmock multiplier multiplierfromfile pwm mediascanner division)
 
 # install
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

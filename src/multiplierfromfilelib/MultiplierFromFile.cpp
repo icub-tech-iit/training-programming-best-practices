@@ -38,31 +38,41 @@ double MultiplierFromFile::invoke3(unsigned int leftIndex, unsigned int rightInd
 
 }
 
-double MultiplierFromFile::getDataFromFile(unsigned int) const
+double MultiplierFromFile::getDataFromFile(unsigned int index) const
 {
-	std::ifstream ifs("data.txt");
+	std::ifstream ifs(fileName_);
+	//go to line by index
+	std::string s;
+	for (int i = 1; i < index; i++)
+        std::getline(ifs, s);
+	//...
 	double out;
 	ifs >> out;
 	return out;
 }
 
-double MultiplierFromFile::getDataFromFile(unsigned int, unsigned int) const
+double MultiplierFromFile::getDataFromFile(unsigned int index, double* out) const
 {
-	return 0;
-}
-
-double MultiplierFromFile::getDataFromFile(unsigned int, double* out) const
-{
-	std::ifstream ifs("data.txt");
+	std::ifstream ifs(fileName_);
+	//go to line by index
+	std::string s;
+	for (int i = 1; i < index; i++)
+        std::getline(ifs, s);
+	//...
 	double outFromFile;
 	ifs >> outFromFile;
 	*out = outFromFile;
 	return *out;
 }
 
-double MultiplierFromFile::getDataFromFile(unsigned int, double& out) const
+double MultiplierFromFile::getDataFromFile(unsigned int index, double& out) const
 {
-	std::ifstream ifs("data.txt");
+	std::ifstream ifs(fileName_);
+	//go to line by index
+	std::string s;
+	for (int i = 1; i < index; i++)
+        std::getline(ifs, s);
+	//...
 	double outFromFile;
 	ifs >> outFromFile;
 	out = outFromFile;

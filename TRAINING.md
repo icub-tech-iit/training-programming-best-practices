@@ -45,9 +45,9 @@ UNIT TESTING is a type of software testing where individual units or components 
 :question: What are the advantages to write unit tests?  
 ## 2.1. Early debug
 Unit tests help to fix bugs early in the development cycle and save costs.
-In this stage the software is more easy to debug:
+In this stage the software is easier to debug:
 - It is smaller.
-- It is less interdipendent to others parts.
+- It is less interdependent to others parts.
 
 ___
 :pushpin: **Marconi's approach to software testing.**  
@@ -68,14 +68,14 @@ When you have a suite of unit tests, you can run it iteratively to ensure that e
 
 ## 2.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
-Note that in this way the code documentation is always updated (otherwise the code doesn't compile)
+Note that in this way the code documentation is always updated (otherwise the code does not compile)
 
 ![alt text](img/ut003.jpeg)
 
 ## 2.4. Unit testing improves code coverage 
 
 Unit testing helps to improve code coverage.  
-:question:What is test coverage?  
+:question: What is test coverage?  
 It is a technique to ensure that your tests are testing your code or how much of your code you exercised by running the test. Are there code parts not tested?
 
 ## 2.5. Unit Testing Myth
@@ -92,8 +92,8 @@ The truth is Unit testing increase the speed of development.
 ## 3.1. Good practices for unit testing include
 - Creating tests for all **publicly exposed** functions, including class constructors and operators.
 - Covering all code paths and checking both trivial and **edge cases**, including those with incorrect input data (negative testing).
-- Assuring that each test works independently and doesn't prevent other tests from execution.
-- Organizing tests in a way that the order in which you run them doesn't affect the results.
+- Assuring that each test works independently and does not prevent other tests from execution.
+- Organizing tests in a way that the order in which you run them does not affect the results.
 
 ![alt text](img/ut005.jpg)
 
@@ -111,7 +111,7 @@ Test (TestGroupName, TestName)   {
 As code's testability depends on its design, unit tests facilitate breaking it into specialized easy-to-test pieces.
 An easy way to do this is to use self-consistent classes.  
 Another useful technique is the so-called **dependence injection**.
-It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in ('injected') object is called a service.   
+It is a technique in which an object receives other objects. The receiving object is called a client and the passed-in (`injected`) object is called a service.   
 
 
 ![alt text](img/ut006.jpg)
@@ -174,6 +174,7 @@ The use of the inheritance technique tightly couples parent class with child cla
 - https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics  
 - https://www.guru99.com/unit-testing-guide.html  
 - Test coverage: https://www.guru99.com/test-coverage-in-software-testing.html#1
+- https://betterprogramming.pub/13-tips-for-writing-useful-unit-tests-ca20706b5368
 
 # 4. GTEST
 googletest is a testing framework developed by the Testing Technology team with Google’s specific requirements and constraints in mind. Whether you work on Linux, Windows, or a Mac.
@@ -181,7 +182,7 @@ googletest is a testing framework developed by the Testing Technology team with 
 - very well supported
 - cmake friend
 - visual studio code friend
-- cross platform
+- cross-platform
 
 ## 4.1. The tests are simple
 
@@ -221,10 +222,10 @@ Choose good names for tests, see for reference:https://dev.to/canro91/unit-testi
 
 
 - Choose a naming convention for your test names and stick to it.
-- Every test name should tell the scenario under test and the expected result. Don't worry about long test names. But, don't name your tests: Test1, Test2 and so on.
-- Describe in your test names what your testing in a language easy to understand even for non-programmers.
+- Every test name should tell the scenario under test and the expected result. Do not worry about long test names. But, do not name your tests: Test1, Test2, and so on.
+- Describe in your test names what you are testing, in a language easy to understand even for non-programmers.
 
-❌ Don't prefix your test names with "Test". If you're using a testing framework that doesn't need keywords in your test names, don't do that.  
+❌ Do not prefix your test names with "Test". If you're using a testing framework that does not need keywords in your test names, don't do that.  
 
 ![alt text](img/ut009.jpg)
 
@@ -233,6 +234,35 @@ ___
 By Joel:  
 the infamous Hungarian naming convention:  
 https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/
+
+### 4.2.3. Test in code
+
+Don't mix test code with production code (never):
+
+```c++
+class WinterAssistant {
+  public:
+    bool isTest_ = false;
+
+    bool needWinterJacket() {
+        Thermometer *thermometer;
+        if( isTest_ )
+        {
+            thermometer = new FakeThermometer();
+        } else 
+        {
+            thermometer = new Thermometer();
+        }
+
+        return thermometer->getTemperature() < 40;
+  }
+}
+```
+In this case, you can use easily the code injection technique.
+
+### 4.2.4. Run Your Tests as Part of Every Automated Build
+
+Just as you should be running your tests as you develop, they should also be an integral part of your continuous integration process. A failed test should mean that your build is broken.
 
 ## 4.3. Check macro
 Other EXPECT and ASSERT macro exist:  
@@ -309,7 +339,7 @@ EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 
 ## 4.9. Test death
 
-If we expect that a function close the program with an error that contains "must be true".
+If we expect that a function closes the program with an error that contains "must be true".
 
 ```c++
 TEST(MyDeathTest, Exit) 
@@ -365,7 +395,7 @@ The test explorer:
 ![alt text](img/vc001.png)
 
 :heavy_check_mark:
-It could be necessari to add in settings.json:
+It could be necessary to add in settings.json:
 ```
 testMate.cpp.test.executables": "${workspaceFolder}/install/bin/unittest"
 ```
@@ -386,22 +416,62 @@ https://google.github.io/googletest/primer.html
 
 # 5. Exercises
 
-## 5.1. The division class 
-- Complete the division class (take a look at the Multiplier class)
-- As input the method invoke can have only number > -30.
-- Add the unit test for the class. Be carefull with the edge cases.
 
-# 6. GMOCK
-A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc).
+## 5.1. Injection
+
+Change this code using the code injection technique.
+
+```c++
+class CanSenderScheduler {
+  public:
+#ifndef TEST    
+    bool isTest_ = false;
+#else
+    bool isTest_ = true;
+#endif
+
+    bool sendData(const std::vector<unsigned char>  &data)
+    {
+        CanServer *server;
+        if( isTest_ )
+        {
+            server = new FakeCanServer(12);
+        } else 
+        {
+            server = new CanServer(12);
+        }
+
+        return server->send(data);
+    }
+};
+
+class CanServer
+{
+    public:
+        CanServer(unsigned int address);
+        bool send(const std::vector<unsigned char>  &data);
+}
+
+```
+
+## 5.2. The division class 
+- Complete the division class im `divisionlib` (take a look at the Multiplier class)
+- As input, the method invokes, can have only numbers > -30.
+- Add the unit test for the class. Be careful with the edge cases.
+
+The skeleton is in `testDivision.cpp`
+
+# 6. Testing complex objects
+
+To test your complex class without the connected/related classes, you could use a mocking framework.
+Not always is possible to obtain the desired result, it depends mainly on how your code is written.
+If you are using dependency injection, the testability of the code is much better since you can inject mocks as well.
+
+## 6.1. MOCK
+A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc...).
 
 ![alt text](img/ut010.jpg)
 
-## 6.1. How to
-When using gMock,
-
-- first, you use some simple macros to describe the interface you want to mock, and they will expand to the implementation of your mock class.
-- next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax.
-- then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.
 
 ## 6.2. MOCK vs STUB
 
@@ -409,18 +479,28 @@ Mocking is a way to replace a dependency in a unit under test with a stand-in fo
 
 **Stub**: Stub is an object that holds predefined data and uses it to answer calls during tests. Such as an object that needs to grab some data from the database to respond to a method call.
 
-**Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. A mock is like a stub but the test will also verify that the object under test calls the mock as expected. Part of the test is verifying that the mock was used correctly.
+**Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. A mock is like a stub but, the test will also verify that the object under test calls the mock as expected. Part of the test is verifying that the mock was used correctly.  
+Also, the mocks can be `programmed` to give certain result values or behaviours.
 
-## 6.3. Dependency injection.
+## 6.3. How to
+We are using gmock which is the moking library for gtest.  
+
+When using gMock,
+
+- first, you use some simple macros to describe the interface you want to mock, and they will expand to the implementation of your mock class.
+- next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax.
+- then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.  
+
+## 6.4. Dependency injection.
 
 Mocking needs dependency injection to work better.
 [See above](#33-modularize-your-code)
 
-## 6.4. Disclaimed
+## 6.5. Disclaimed
 This part of the course will be done by examples.
 
 
-## 6.5. Simple mock
+## 6.6. Simple mock
 First of all, you need to mock the class and method we do not want to test directly.
 ```c++
 class ...
@@ -431,21 +511,25 @@ class ...
 ```
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 6.6. Simple tests
+## 6.7. Simple tests
 
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 6.7. Test c std API
+## 6.8. Test c std API
 In this case, is necessary to write a class to overlap the c API.  
 See file: InterfaceForCApi.h
 
 **CODE**: See test:testMediaScanner.cpp
 
-## 6.8. Reference for gmock
+## 6.9. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
+# 7. Exercises
 
-# 7. GitPod
+## 7.1. Pwm
+Mock and write unit tests for `pwmlib`. You can find the skeleton in `testPwm.cpp`.
+
+# 8. GitPod
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
 ![alt](img/gitpod001.png)

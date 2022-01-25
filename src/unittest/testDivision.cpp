@@ -9,29 +9,15 @@
  * @luca.triceri@iit.it
  */
 
-#include "gmock/gmock.h"
+#include <tuple>
+
+#include "Division.h"
 #include "gtest/gtest.h"
-#include "motor.h"
-#include "pwm.h"
+// Simple UT
 
-using namespace testing;
-using ::testing::_;
-using ::testing::An;
-using ::testing::Gt;
-using ::testing::InSequence;
-using ::testing::InvokeArgument;
-using ::testing::Matcher;
-using ::testing::TypedEq;
-
-class Motor_Mock : public Motor
+TEST(Division, xxx)
 {
-   //...
-};
-
-TEST(MotorFile, Test_base_001)
-{
-	Motor_Mock motor;
-
-	//...
 
 }
+
+

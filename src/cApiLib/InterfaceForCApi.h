@@ -31,6 +31,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+struct udev
+{};
+
 // Wraper for unittest use of c style API
 class InterfaceForCApi
 {
@@ -45,5 +48,7 @@ class InterfaceForCApi
 		return udev_new();
 	}
 
+    //...
+	
 	virtual ~InterfaceForCApi(){};
 };

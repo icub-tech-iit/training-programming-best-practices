@@ -36,27 +36,29 @@ class MultiplierFromFile_Mock : public MultiplierFromFile
 
 TEST(MultiplierFromFile, expect_call_base_001)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(1));
 	EXPECT_CALL(mult, getDataFromFile(2));
 
+	//The test
 	mult.invoke(1, 2);
 }
 
 TEST(MultiplierFromFile, expect_call_times_001)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(1)).Times(1);
 	EXPECT_CALL(mult, getDataFromFile(2)).Times(1);
 
+	//The test
 	mult.invoke(1, 2);
 }
 
 TEST(MultiplierFromFile, expect_call_times_002)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 	EXPECT_CALL(mult, getDataFromFile(1)).Times(AnyNumber());
 	EXPECT_CALL(mult, getDataFromFile(2)).Times(AnyNumber());
 
@@ -65,7 +67,7 @@ TEST(MultiplierFromFile, expect_call_times_002)
 
 TEST(MultiplierFromFile, expect_call_match_generic_001)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(_)).Times(2);
 
@@ -74,16 +76,26 @@ TEST(MultiplierFromFile, expect_call_match_generic_001)
 
 TEST(MultiplierFromFile, expect_call_match_002)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(Gt(0))).Times(2);
 
 	mult.invoke(1, 2);
 }
 
+TEST(MultiplierFromFile, expect_call_match_003)
+{
+	MultiplierFromFile_Mock mult("myFileName");
+
+	EXPECT_CALL(mult, getDataFromFile(Gt(100))).Times(1);
+	EXPECT_CALL(mult, getDataFromFile(Lt(100))).Times(1);
+
+	mult.invoke( 2,1010);
+}
+
 TEST(MultiplierFromFile, expect_call_sequence_001)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	InSequence s;
 	EXPECT_CALL(mult, getDataFromFile(1)).Times(1);
@@ -94,7 +106,7 @@ TEST(MultiplierFromFile, expect_call_sequence_001)
 
 TEST(MultiplierFromFile, expect_call_return_001)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(1)).WillOnce(Return(10));
 	EXPECT_CALL(mult, getDataFromFile(2)).WillOnce(Return(11));
@@ -104,16 +116,18 @@ TEST(MultiplierFromFile, expect_call_return_001)
 
 TEST(MultiplierFromFile, expect_call_return_002)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(_)).WillRepeatedly(Return(9));
 
 	EXPECT_EQ(81, mult.invoke(1, 2));
 }
 
+//More advanced
+
 TEST(MultiplierFromFile, expect_call_returnparam_001)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	double value=5;
 	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5),Return(5)));
@@ -123,28 +137,28 @@ TEST(MultiplierFromFile, expect_call_returnparam_001)
 
 TEST(MultiplierFromFile, expect_call_returnparam_002)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 
-	EXPECT_CALL(mult, getDataFromFile(1, An<double &>())).WillOnce(DoAll(SetArgReferee<1>(5), Return(1)));
-	EXPECT_CALL(mult, getDataFromFile(2, An<double &>())).WillOnce(DoAll(SetArgReferee<1>(5), Return(1)));
+	EXPECT_CALL(mult, getDataFromFile(1, An<double &>())).WillOnce(DoAll(SetArgReferee<1>(5), Return(5)));
+	EXPECT_CALL(mult, getDataFromFile(2, An<double &>())).WillOnce(DoAll(SetArgReferee<1>(5), Return(5)));
 
 	EXPECT_EQ(25,mult.invoke2(1, 2));
 }
 
 TEST(MultiplierFromFile, expect_call_returnparam_003)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
-	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5), Return(1)));
+	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5), Return(5)));
 
-	EXPECT_EQ(mult.invoke2(1, 2), 25);
+	EXPECT_EQ(25,mult.invoke2(1, 2));
 }
 
 
 TEST(MultiplierFromFile, Test_returnparam_004)
 {
-	MultiplierFromFile_Mock mult("Luca");
+	MultiplierFromFile_Mock mult("myFileName");
 
 	EXPECT_CALL(mult, getDataFromFile(_,An<double*>())).WillRepeatedly(DoAll(SetArgPointee<1>(5),Return(5)));
 
