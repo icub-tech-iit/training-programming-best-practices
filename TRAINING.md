@@ -26,6 +26,11 @@ End of January, if possible in presence.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/icub-tech-iit/training-programming-best-practices)
 
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+
+
+
 - [What is Gitpod?](https://www.gitpod.io/docs/getting-started)
 
 Optional
@@ -524,7 +529,7 @@ See file: InterfaceForCApi.h
 ## 6.9. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
-# 7. Exercises
+# 7. Exercises              
 
 ## 7.1. Pwm
 Mock and write unit tests for `pwmlib`. You can find the skeleton in `testPwm.cpp`.
