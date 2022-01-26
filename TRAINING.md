@@ -22,13 +22,9 @@ End of January, if possible in presence.
 - Github account (https://github.com/)
 - Gitpod account (https://www.gitpod.io/)
 - Fork this repository 
-- To open the forked repo on Gitpod use the following button.
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/icub-tech-iit/training-programming-best-practices)
-
+- To open the forked repo on Gitpod use the following button. It will take a while the first time.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
-
 
 
 - [What is Gitpod?](https://www.gitpod.io/docs/getting-started)
