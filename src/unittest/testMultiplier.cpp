@@ -24,6 +24,14 @@ TEST(Multiplier, multiply_check_positive_001)
 	// ASSERT_FALSE(mult.invoke(1, 2) == 2);
 }
 
+TEST(Multiplier, multiply_check_positive_edge_001)
+{
+	Multiplier mult;
+	EXPECT_EQ(0, mult.invoke(1, 0));
+	EXPECT_EQ(0, mult.invoke(0, 1));
+}
+
+
 TEST(Multiplier, multiply_check_negative_001)
 {
 	Multiplier mult;

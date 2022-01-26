@@ -70,7 +70,7 @@ When you have a suite of unit tests, you can run it iteratively to ensure that e
 
  :pushpin: **Siemens's approach to non-regression tests (2010).**  
  <img src="img/coke.jpg" width="300"/>  
- One of the most important clients of Siemens in Genoa was the Coca-cola company.
+ One of the most important customers of Siemens in Genoa was the Coca-cola company.
  The company wanted always new features, very well paid. Siemens was releasing new versions one after the other testing only the new features.
  A simple bug due to the addition of a new feature, but in a very old and important part of the code, stopped two factories for 1 week.  
  Siemens in the end lost its client.  
@@ -546,7 +546,8 @@ How to:
 - Only for Visual Studio Code users. Install extension on Visual Studio Code. This step is not mandatory.  
 ![alt](img/gitpod002.png)
 - Enter GitPod with the button (the first time it will take 5minutes).  
-![alt](img/gitpod004.png)
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 - Create build folder, create makefile and compile
   ```bash
   cd /workspace/training-programming-best-practices/unittest-course-part
