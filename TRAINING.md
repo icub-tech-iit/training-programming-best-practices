@@ -51,11 +51,12 @@ In this stage the software is easier to debug:
 - It is less interdependent to others parts.
 
 ___
-:pushpin: **Marconi's approach to software testing.**  
-Marconi was a large company that developed a particular mobile phone technology called TETRA. It was a kind of GSM / UMTS / 4G mobile phone network for police and military forces.
-They had created a test group in Florence with about 20 telecommunications engineers, they had poor results.
-The head of the test group decided to take 20 philosophy graduates instead of engineers. I was among the ones that developed the TETRA, I was there in that mess. In the beginning, the so-called monkey tests were an incredible success. Bug after bugs, but... as the testers were not technicians they report on the tests were almost impossible to reproduce. So in the end, the 20 philosophy graduates went back to their studies.   
-**The system was too complex to be tested all together.**
+:pushpin: **Marconi's approach to software testing (2004).**  
+Marconi was a large company that developed a particular mobile phone technology called TETRA. It was a kind of GSM / UMTS / 4G mobile phone network for police and military forces.  
+They had created a test group in Florence with about 20 telecommunications engineers, but they had poor results.  
+The head of the test group decided to take 20 philosophy graduates instead of engineers. I was among the ones that developed the TETRA, I was there in that mess.  In the beginning, the so-called monkey tests were an incredible success. Bug after bugs, but... as the testers were not technicians they report on the tests were almost impossible to reproduce. So in the end, the 20 philosophy graduates went back to their studies.  
+<img src="img/marconi.jpg" width="400"/>  
+**The system was simply too complex to be tested all together.**
 ___
 
 
@@ -66,6 +67,14 @@ When you have a suite of unit tests, you can run it iteratively to ensure that e
 
 :question: What is refactoring?  
  Using an Agile methodology we continuously develop new and unplanned features from the beginning. In this context, the application architecture may become unstable. Periodic refactoring is important.
+
+ :pushpin: **Siemens's approach to non-regression tests (2010).**  
+ <img src="img/coke.jpg" width="300"/>  
+ One of the most important clients of Siemens in Genoa was the Coca-cola company.
+ The company wanted always new features, very well paid. Siemens was releasing new versions one after the other testing only the new features.
+ A simple bug due to the addition of a new feature, but in a very old and important part of the code, stopped two factories for 1 week.  
+ Siemens in the end lost its client.  
+**The system have not unit tests for non regression purpose.**
 
 ## 2.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
