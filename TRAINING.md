@@ -562,3 +562,8 @@ cd /workspace/training-programming-best-practices/install/bin
 ./unittest
 ```
    
+# 9. Feedback
+
+For future training ...  
+Please send me a feedback with all the critical points that can be done better and the things that are good.   
+Luca.tricerri@iit.it
