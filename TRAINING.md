@@ -550,9 +550,9 @@ How to:
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 - Create build folder, create makefile and compile
   ```bash
-  cd /workspace/training-programming-best-practices/unittest-course-part
+  cd /workspace/training-programming-best-practices/src
   mkdir build
-  cmake -DCMAKE_INSTALL_PREFIX=/workspace/training-programming-best-practices/unittest-course-part/install ..
+  cmake -DCMAKE_INSTALL_PREFIX=/workspace/training-programming-best-practices/install ..
   make install
   ```
 
