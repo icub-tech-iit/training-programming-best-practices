@@ -17,7 +17,10 @@
 
 double MultiplierFromFile::invoke(unsigned int leftIndex, unsigned int rightIndex) const
 {
-	return getDataFromFile(leftIndex) * getDataFromFile(rightIndex);
+	double a=getDataFromFile(leftIndex);
+	double b=getDataFromFile(rightIndex);
+	//..Algorithm based on value of a and b
+	return a*b;
 }
 
 double MultiplierFromFile::invoke2(unsigned int leftIndex, unsigned int rightIndex) const
@@ -43,7 +46,7 @@ double MultiplierFromFile::getDataFromFile(unsigned int index) const
 	std::ifstream ifs(fileName_);
 	//go to line by index
 	std::string s;
-	for (int i = 1; i < index; i++)
+	for (int i = 0; i <= index; i++)
         std::getline(ifs, s);
 	//...
 	double out;
@@ -56,7 +59,7 @@ double MultiplierFromFile::getDataFromFile(unsigned int index, double* out) cons
 	std::ifstream ifs(fileName_);
 	//go to line by index
 	std::string s;
-	for (int i = 1; i < index; i++)
+	for (int i = 0; i <= index; i++)
         std::getline(ifs, s);
 	//...
 	double outFromFile;

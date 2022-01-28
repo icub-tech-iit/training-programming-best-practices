@@ -18,17 +18,17 @@ Pwm::Pwm(Motor& motor, int minAnalogValue, int maxAnalogValue, int minPwmPercent
 
 double Pwm::calculatePwmFromPercent(unsigned int pwmPercent) const
 {
-	double y=(double)(pwmPercent-minPwmPercent_)*(double)(maxAnalogValue_-minAnalogValue_)/(double)(maxPwmPercent_-minPwmPercent_)+(double)minAnalogValue_;
-	pwmLimit(y);
-	return y;
+	double pwmValue=(double)(pwmPercent-minPwmPercent_)*(double)(maxAnalogValue_-minAnalogValue_)/(double)(maxPwmPercent_-minPwmPercent_)+(double)minAnalogValue_;
+	pwmLimit(pwmValue);
+	return pwmValue;
 }
 
 double Pwm::pwmLimit(double& pwmValue) const
 {
-	if (pwmValue < minPwmPercent_)
-		pwmValue = minPwmPercent_-1;
-	if (pwmValue > maxPwmPercent_)
-		pwmValue = maxPwmPercent_-1;
+	if (pwmValue <= minAnalogValue_)
+		pwmValue = minAnalogValue_;
+	if (pwmValue >= maxAnalogValue_)
+		pwmValue = maxAnalogValue_;
 	return pwmValue;
 }
 

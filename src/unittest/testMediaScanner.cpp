@@ -66,6 +66,7 @@ TEST(MediaScanner, MediaScanner_simple_positive_001)
 	EXPECT_CALL(api, udev_new_c()).WillRepeatedly(DoAll(Return(&tmp)));
 
 	//The test
+	EXPECT_EQ(true,mediaScanner.scan("/dev/media0"));
 	EXPECT_TRUE(mediaScanner.scan("/dev/media0"));
 	EXPECT_TRUE(mediaScanner.scan("/dev/v4l"));
 }

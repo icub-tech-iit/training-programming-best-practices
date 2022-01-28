@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "functional": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "bitset": "cpp"
     }
     ,"testMate.cpp.test.executables": "${workspaceFolder}/install/bin/unittest"
 }

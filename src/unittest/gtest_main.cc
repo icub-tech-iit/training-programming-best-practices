@@ -13,8 +13,7 @@
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
-    //::testing::GTEST_FLAG(filter) = "Test.Test_003";
-    //::testing::GTEST_FLAG(filter) = "Test.Test_004";
+    //::testing::GTEST_FLAG(filter) = "MultiplierFromFile.expect_call_return_001";
 
     return RUN_ALL_TESTS();
 }

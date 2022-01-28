@@ -21,7 +21,6 @@ class Pwm
 	Pwm(Motor& motor, int minAnalogValue, int maxAnalogValue, int limitMinPwmPercent, int limitMaxPwmPercent);
 	double calculatePwmFromPercent(unsigned int pwmPercent) const;	// return a proportional pwm value for in
 	bool applyPwmToMotor(double pwm) const;							// apply pwm to motor
-	bool step();
 
    protected:
 	int minAnalogValue_{0};

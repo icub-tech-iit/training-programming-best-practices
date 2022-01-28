@@ -162,6 +162,7 @@ TEST(MultiplierFromFile, Test_returnparam_004)
 
 	EXPECT_CALL(mult, getDataFromFile(_,An<double*>())).WillRepeatedly(DoAll(SetArgPointee<1>(5),Return(5)));
 
+
 	EXPECT_EQ(25,mult.invoke3(1, 2));
 
 }

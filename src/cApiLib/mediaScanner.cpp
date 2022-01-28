@@ -7,6 +7,8 @@ MediaScanner::MediaScanner(InterfaceForCApi& interface) : interfaceCApi_(interfa
 
 bool MediaScanner::scan(const std::string& media)
 {
+	//..
+	
 	// Open main device
 	int fd = interfaceCApi_.open_c(media.c_str(), O_RDWR);
 	//int fd = open(media.c_str(), O_RDWR); <--- original code

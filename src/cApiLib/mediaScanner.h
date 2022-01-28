@@ -18,7 +18,7 @@ class MediaScanner
 {
    public:
    MediaScanner(InterfaceForCApi& interface);
-	bool scan(const std::string& media);
+	bool scan(const std::string& media);//method under test
 
    InterfaceForCApi &interfaceCApi_;
 };
