@@ -2,7 +2,7 @@
 | :----------------- | :------------------------------- |
 | **Objectives**     | Increase code quality by example |
 | **Teacher**        | Luca Tricerri                    |
-| **Duration**       | 3 sessions each of 1 hour        |
+| **Duration**       | 2 sessions each of 2 hours        |
 | **Prerequisites**  | basic C++11 or Java              |
 | **Class Max Size** | 10                               |
 
