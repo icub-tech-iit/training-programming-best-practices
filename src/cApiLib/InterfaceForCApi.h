@@ -40,12 +40,12 @@ class InterfaceForCApi
    public:
 	virtual int open_c(const char *path, int oflag)
 	{
-		return open(path, oflag);
+		return open(path, oflag);//Linux API
 	}
 
 	virtual struct udev *udev_new_c()
 	{
-		return udev_new();
+		return udev_new();//Linux API
 	}
 
     //...

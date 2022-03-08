@@ -71,7 +71,8 @@ class MultiplierParamTupleTest : public ::testing::TestWithParam<std::tuple<int,
 	Multiplier mult_;
 };
 
-INSTANTIATE_TEST_CASE_P(WithParamMultiple, MultiplierParamTupleTest, ::testing::Values(std::make_tuple(1, 2, 2), std::make_tuple(2, 4, 8), std::make_tuple(3, 6, 18)));
+INSTANTIATE_TEST_CASE_P(WithParamMultiple, MultiplierParamTupleTest, ::testing::Values(std::make_tuple(1, 2, 2), 
+																					   std::make_tuple(2, 4, 8), std::make_tuple(3, 6, 18)));
 
 TEST_P(MultiplierParamTupleTest, param_tuple_001)
 {

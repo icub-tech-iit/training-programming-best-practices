@@ -552,6 +552,7 @@ How to:
   ```bash
   cd /workspace/training-programming-best-practices/src
   mkdir build
+  cd build
   cmake -DCMAKE_INSTALL_PREFIX=/workspace/training-programming-best-practices/install ..
   make install
   ```
