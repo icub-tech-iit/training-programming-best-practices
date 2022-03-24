@@ -20,6 +20,7 @@ double MultiplierFromFile::invoke(unsigned int leftIndex, unsigned int rightInde
 	double a=getDataFromFile(leftIndex);
 	double b=getDataFromFile(rightIndex);
 	//..Algorithm based on value of a and b
+	//...
 	return a*b;
 }
 
